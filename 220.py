@@ -1,16 +1,14 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
-document = {}
+doc = {}
 
 for _ in range(n):
-    cmd = input().strip().split()
-    if cmd[0] == "set":
-        key = cmd[1]
-        value = cmd[2]
-        document[key] = value
-
-    elif cmd[0] == "get":
-        key = cmd[1]
-        if key in document:
-            print(document[key])
-        else:
-            print(f"KE: no key {key}")
+    line = input()
+    if line.startswith('set'):
+        _, key, value = line.strip().split()
+        doc[key] = value
+    else:
+        key = line[4:].strip()
+        print(doc[key] if key in doc else f"KE: no key {key} found in the document")
