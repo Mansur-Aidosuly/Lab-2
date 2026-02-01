@@ -6,4 +6,4 @@ while a <= n:
     a *= 2
 for i in arr:
     print(i, end = " ")
-    
+     
